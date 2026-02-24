@@ -5,6 +5,8 @@ const mongoose = require("mongoose")
 const app = express()
 mongoose.connect(process.env.MONGO_URL)
 
+
+app.use("/api/auth", require("./routes/auth.routes"))
 app.use("/", (req, res) => {
     res.status(200).json({ message: `Task manager Api running in ${process.env.NODE_ENV}mode` })
 })
